@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int loopdate = 1;
+	while (loopdate == 1)
+	{
+		int namelen, loopdate = 1, loopplace = 1, loopname = 1, looppayment = 1;
+		string date, place, name, payment;
+		cout << "Hi and welcome to our Hotel Room Booking System. \n";
+		cout << "Please enter the date (dd/mm/yyyy) you want to book the hotel? \n";
+		cin >> date;
+		
+		if (date == "11/04/2021")
+			cout << "Sorry! There is no available hotel on that date. Please try again. \n \n \n";
+		else
+		{
+			while (loopplace == 1)
+			{
+				cout << "Please choose hotel based on your preferred destination. \n";
+				cin >> place;
+				
+				if (place == "Kelantan")
+				{
+					cout << "Sorry. There is no available hotel based on your preferred destination. \n \n";
+				}
+					
+				else
+				{
+					while (loopname == 1)
+					{
+						cout << "Can I get your name please? \n";
+						cin.ignore();
+						getline(cin, name);
+						namelen = name.size();
+					
+						if (namelen < 4)
+						{
+							cout << "It seems like your name is too short. Please write your full name so that we are not confused you with other people. \n \n";
+						}	
+						else
+						{
+							while (looppayment == 1)
+							{
+								cout << "Will you make payment by today? \n";
+								cin >> payment;
+								
+								if (payment == "no" || payment == "No" || payment == "NO")
+								{
+									cout << "Sorry! We can't proceed your booking as we need fast payment to book the room. Please book your preferred hotel again later. \n";
+									cout << "Thank you for using our service \n \n \n";
+									looppayment = 0;
+									loopname = 0;
+									loopplace = 0;												
+								}
+								else if (payment == "yes" || payment == "Yes" || payment == "YES")
+								{
+									cout << "You have made your payment and your booking is complete! We are excited to meet you on " << date << " at " << place << "\n";
+									cout << "See you soon! \n \n \n";
+									looppayment = 0;
+									loopname = 0;
+									loopplace = 0;
+								}
+								else
+									cout << "Sorry wrong input. Please enter yes or no. Thank you \n \n";		
+							}						
+						}		
+					}
+				}
+			}	
+		}		
+	}
+	
+}
